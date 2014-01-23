@@ -1,0 +1,23 @@
+Function BuscaDatos(tabla As String, Optional sWhere As String = "", Optional sOrder As String = "") As MySqlCommand
+        Dim strSQL As String, cmd As MySqlCommand
+
+        strSQL = "SELECT * FROM "
+        strSQL = strSQL & "" & tabla & " "
+
+        If sWhere <> "" Then
+
+            strSQL = strSQL & "WHERE " & sWhere & " "
+
+        End If
+
+        If sOrder <> "" Then
+
+            strSQL = strSQL & "ORDER BY " & sOrder & ""
+
+        End If
+
+        cmd = New MySqlCommand(strSQL, gConn)
+
+        BuscaDatos = cmd
+
+End Function
